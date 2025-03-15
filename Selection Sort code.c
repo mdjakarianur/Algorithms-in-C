@@ -1,39 +1,33 @@
-/* Selection sort code */
 #include <stdio.h>
 
-int main()
-{
-  int array[100], n, c, d, swap, min_pos;
+int main(){
+  int array[100], n, i, j, swap, min;
 
-  printf("Enter number of elements\n");
+  printf("Enter Array size: ");
   scanf("%d", &n);
 
-  printf("Enter %d integers\n", n);
+  printf("Enter %d Integer Value: ", n);
 
-  for (c = 0; c < n; c++)
-    scanf("%d", &array[c]);
+  for (i = 0; i < n; i++)
+    scanf("%d", &array[i]);
 
-      for (c = 0 ; c < n - 1; c++)
-      {
-        min_pos = c;
-        for (d = c + 1; d < n; d++)
-        {
-          if (array[d] < array[min_pos])
-            min_pos = d;
+      for (i = 0 ; i < n - 1; i++){
+        min = i;
+        for (j = i + 1; j < n; j++){
+          if (array[j] < array[min])
+            min = j;
         }
-        if(min_pos !=c )
-        {
-            swap       = array[c];
-            array[c]   = array[min_pos];
-            array[min_pos] = swap;
+        if(min !=i){
+            swap       = array[i];
+            array[i]   = array[min];
+            array[min] = swap;
         }
       }
 
-  printf("Sorted list in ascending order:\n");
+  printf("Sorted List in Ascending Order: ");
 
-  for (c = 0; c < n; c++)
-     printf("%d\n", array[c]);
-
+  for (i = 0; i < n; i++){
+     printf("%d  ", array[i]);
+}
   return 0;
 }
-
