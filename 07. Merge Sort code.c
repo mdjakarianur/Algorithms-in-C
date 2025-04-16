@@ -1,15 +1,5 @@
-/*
-    a[] is the array, p is starting index, that is 0,
-    and r is the last index of array.
-*/
-
 #include <stdio.h>
-
-// lets take a[5] = {32, 45, 67, 2, 7} as the array to be sorted.
-
-// merge sort function
-void mergeSort(int a[], int p, int r)
-{
+void mergeSort(int a[], int p, int r){
     int q;
     if(p < r)
     {
@@ -20,10 +10,8 @@ void mergeSort(int a[], int p, int r)
     }
 }
 
-// function to merge the subarrays
-void merge(int a[], int p, int q, int r)
-{
-    int b[5];   //same size of a[]
+void merge(int a[], int p, int q, int r){
+    int b[5];  
     int i, j, k;
     k = 0;
     i = p;
@@ -32,14 +20,13 @@ void merge(int a[], int p, int q, int r)
     {
         if(a[i] < a[j])
         {
-            b[k++] = a[i++];    // same as b[k]=a[i]; k++; i++;
+            b[k++] = a[i++]; 
         }
         else
         {
             b[k++] = a[j++];
         }
     }
-
     while(i <= q)
     {
         b[k++] = a[i++];
@@ -52,11 +39,9 @@ void merge(int a[], int p, int q, int r)
 
     for(i=r; i >= p; i--)
     {
-        a[i] = b[--k];  // copying back the sorted list to a[]
+        a[i] = b[--k]; 
     }
 }
-
-// function to print the array
 void printArray(int a[], int size)
 {
     int i;
@@ -75,7 +60,6 @@ int main()
     printf("Given array: \n");
     printArray(arr, len);
 
-    // calling merge sort
     mergeSort(arr, 0, len - 1);
 
     printf("\nSorted array: \n");
