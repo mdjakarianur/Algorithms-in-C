@@ -1,10 +1,7 @@
-/* Insertion sort code */
 #include <stdio.h>
 
-void insertion_sort (int a[], int length)
-{
-    for(int i=1;i< length;i++)
-    {
+void insertion_sort (int a[], int length){
+    for(int i=1;i< length;i++){
         int key=a[i];
         int j=i-1;
         while (j>=0 && a[j]>key)
